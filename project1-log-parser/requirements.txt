@@ -1,0 +1,16 @@
+# T-Pot Threat Intelligence Pipeline - Project 1
+# Install with: pip install -r requirements.txt
+
+# Core HTTP client for API calls
+requests>=2.31.0
+
+# Config file parsing
+pyyaml>=6.0.1
+
+# Optional: Used by Project 2 (attacker profiler) when built
+# folium>=0.15.0          # Interactive geo maps
+# pandas>=2.0.0           # Data analysis
+
+# Optional: Used by Project 4 (report generator) when built
+# fpdf2>=2.7.0            # PDF report generation
+# matplotlib>=3.7.0       # Charts for reports

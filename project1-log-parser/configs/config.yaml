@@ -1,0 +1,34 @@
+# T-Pot Threat Intelligence Pipeline - Configuration
+# Project 1: Log Parser & IP Enricher
+#
+# API Keys: Either set them here OR export as environment variables:
+#   export ABUSEIPDB_KEY="your_key_here"
+#   export VIRUSTOTAL_KEY="your_key_here"
+#   export SHODAN_KEY="your_key_here"
+#
+# Free API key registration:
+#   AbuseIPDB:  https://www.abuseipdb.com/account/api        (1,000 checks/day)
+#   VirusTotal: https://www.virustotal.com/gui/my-apikey     (500 checks/day, 4/min)
+#   Shodan:     https://account.shodan.io/                   (1 req/sec)
+#   ip-api.com: No key required                              (45 req/min)
+
+api_keys:
+  abuseipdb:  ""        # AbuseIPDB API key
+  virustotal: ""        # VirusTotal API key
+  shodan:     ""        # Shodan API key
+
+# How long (days) before re-querying an IP's enrichment data
+# Set low (1) for active monitoring, high (30) to conserve API quota
+cache_ttl_days: 7
+
+# Rate limiting overrides (seconds between requests per API)
+# Increase if you're hitting rate limit errors
+rate_limits:
+  ip_api:     0.5    # ip-api.com: 45 req/min free
+  abuseipdb:  1.1    # AbuseIPDB: 1000/day free
+  virustotal: 15.5   # VirusTotal: 4/min free (= 1 per 15s)
+  shodan:     1.1    # Shodan: 1/sec free
+
+# T-Pot log directory - root of the tpotce data folder
+# Point --log-dir at this when running main.py
+log_dir: /home/ubuntu/tpotce/data/
